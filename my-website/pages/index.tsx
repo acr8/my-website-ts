@@ -34,10 +34,8 @@ const Home: NextPage<Props> = ({ scrollY }) => {
   useEffect(() => {
     if (offset <= 240) {
       setElement(true);
-      // setFirstElement(true);
     } else if (offset >= 250) {
       setElement(false);
-      // setFirstElement(false);
     }
   }, [offset]);
 
@@ -56,7 +54,7 @@ const Home: NextPage<Props> = ({ scrollY }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Row className="home-container" style={{ backgroundColor: "lightgray", padding: "24px 50px" }}>
-        <CSSTransition unmountOnExit in={element} timeout={500} classNames="first-scroll-1">
+        <CSSTransition nodeRef={ref1}  unmountOnExit in={element} timeout={500} classNames="first-scroll-1">
           <CSSTransition nodeRef={ref1} unmountOnExit in={firstElement} timeout={800} classNames="first-transition">
             <Col ref={ref1} xxl={12} xl={12} lg={12} md={12} sm={12} xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
               <div style={{ background: "white" }}>
@@ -67,7 +65,7 @@ const Home: NextPage<Props> = ({ scrollY }) => {
             </Col>
           </CSSTransition>
         </CSSTransition>
-        <CSSTransition unmountOnExit in={element} timeout={500} classNames="first-scroll-2">
+        <CSSTransition unmountOnExit nodeRef={ref2} in={element} timeout={500} classNames="first-scroll-2">
           <CSSTransition unmountOnExit nodeRef={ref2} in={firstElement} timeout={800} classNames="second-transition">
             <Col ref={ref2} xxl={12} xl={12} lg={12} md={12} sm={12} xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "20%" }}>
               <div style={{ width: 500, height: 500, backgroundColor: "white" }}></div>

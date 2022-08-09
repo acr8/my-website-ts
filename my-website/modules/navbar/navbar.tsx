@@ -9,6 +9,7 @@ export default function Navbar({}: Props) {
   const router = useRouter();
   const [header, setHeader] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  // const [current, setCurrent] = useState('home');
   const [current, setCurrent] = useState(router.pathname === "/" ? "home" : router.pathname === "/about" ? "about" : router.pathname === "/my-artwork" ? "artwork" : "");
 
   const toHome = () => {

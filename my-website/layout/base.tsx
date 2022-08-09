@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import { getCookies, setCookies, removeCookies, hasCookie } from "cookies-next";
 import Navbar from "../modules/navbar/navbar";
 import moment from "moment";
+import dynamic from 'next/dynamic'
+
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
@@ -17,7 +19,7 @@ export default function LayoutBase({ children }: Props) {
   const nodeRef = React.useRef(null);
   const [showChildren, setshowChildren] = useState(false);
   const [navbarFade, setNavbarFade] = useState(typeof window !== "undefined" ? (sessionStorage.getItem("fade") === "ok" ? true : false) : false);
-
+// const [navbarFade, setNavbarFade] = useState(false)
   useEffect(() => {
     setshowChildren(true);
     setNavbarFade(true);
@@ -34,13 +36,12 @@ export default function LayoutBase({ children }: Props) {
   const removeSessionStorage = () => {
     sessionStorage.clear();
   };
-  
 
   return (
     <Layout>
       <CSSTransition nodeRef={nodeRef} unmountOnExit in={navbarFade} timeout={2000} classNames="navbar-transition">
         <Header ref={nodeRef} className="navbar-header">
-          <Navbar />
+          <Navbar/>
         </Header>
       </CSSTransition>
       {/* <Content style={{ marginTop: 80 }}>{showChildren && children}</Content> */}
