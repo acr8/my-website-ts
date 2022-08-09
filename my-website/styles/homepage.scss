@@ -1,0 +1,90 @@
+.home-container {
+  height: 100vh;
+  width: 100%;
+}
+
+// =================================
+
+.first-transition-enter {
+  /*We give the list the initial dimension of the list button*/
+  opacity: 0;
+  transform: translateX(-200px);
+}
+.first-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 800ms;
+}
+.first-transition-exit {
+  opacity: 0;
+}
+
+.first-transition-exit-active {
+  opacity: 1;
+  transition: all 800ms;
+}
+
+// =================================
+
+.second-transition-enter {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.second-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 800ms;
+}
+.second-transition-exit {
+  opacity: 0;
+}
+.second-transition-exit-active {
+  opacity: 1;
+  transition: all 800ms;
+}
+
+// =================================
+
+.first-scroll-1-enter {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.first-scroll-1-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 500ms;
+}
+.first-scroll-1-exit {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.first-scroll-1-exit-active {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 500ms;
+}
+
+// =================================
+
+.first-scroll-2-enter {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.first-scroll-2-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 500ms;
+}
+.first-scroll-2-exit {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.first-scroll-2-exit-active {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 500ms;
+}
+
+// =================================

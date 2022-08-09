@@ -1,0 +1,142 @@
+.navbar-header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 80px !important;
+  padding: 0 0px !important;
+  background-color: transparent !important;
+
+  .navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100% !important;
+    padding: 0 3% 0 3% !important;
+    z-index: 10;
+    // border-bottom: 1px white solid;
+    transition: all 0.3s ease-in-out;
+
+    &.scroll {
+      box-shadow: 0 0 2px #919191;
+      background-color: white;
+    }
+
+    .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
+    .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
+      margin-top: 8px;
+      margin-bottom: 0;
+      padding: 0 10px;
+    }
+  }
+
+  .navbar-menu {
+    min-width: 600px;
+    justify-content: center;
+    border-bottom: unset !important;
+    background-color: transparent !important;
+    color: white;
+    transition: all 0.3s ease-in-out;
+
+    .ant-menu-item-selected {
+      .ant-menu-title-content {
+        .navbar-menu-item {
+          color: white !important;
+          background-color: transparent;
+          transition: background-color 1s ease, color 0.1s ease;
+          .navbar-button {
+            font-weight: bold;
+            border-color: transparent;
+            background-size: 300% 100%;
+            // background: #8e00ea;
+            background-image: linear-gradient(to right, #6f16fd, #9756d9, #9d51ee, #7c3fff);
+            // box-shadow: 0 1px 4px 0 rgba(116, 79, 168, 0.75);
+            // background-image: linear-gradient(to right, #9a12f5 0%, #8812f6 51%, rgb(185, 73, 255) 100%);
+            transition: all 0.8s ease, color 0.1s ease, font-weight 0.1s ease;
+            .item-text {
+              color: rgb(248, 241, 250);
+              transition: color 0.1s ease;
+            }
+          }
+
+          .navbar-button:hover {
+            cursor: default;
+            background-position: 100% 0;
+            transition: all 0.8s ease, color 0.1s ease, font-weight 0.1s ease;
+
+            .item-text {
+              color: white;
+              opacity: 1;
+            }
+
+            .item-border-bottom {
+              height: 25px; // this is a problem
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+
+    .navbar-menu-item {
+      color: black;
+      .navbar-button {
+        width: 150px;
+        cursor: pointer;
+        height: 42px;
+        padding: 4px 15px;
+        font-size: 16px;
+        border-radius: 12px;
+        border-color: transparent;
+        background: transparent;
+        transition: all 0.4s ease-in-out;
+        .item-border-bottom {
+          transition: color 0.4s ease-in-out, border-bottom 0.2s ease;
+        }
+        .item-text {
+          color: white;
+          transition: all 0.2s ease;
+          &.scroll {
+            color: black;
+          }
+        }
+      }
+      .navbar-button:hover {
+        color: #8e00ea;
+        .item-border-bottom {
+          height: 35px;
+          border-bottom: 2px #8e00ea solid;
+          .item-text {
+            font-weight: bold;
+            color: #8e00ea;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-menu-horizontal > .ant-menu-item::after,
+  .ant-menu-horizontal > .ant-menu-submenu::after {
+    border-bottom: none !important;
+  }
+}
+
+html {
+  --antd-wave-shadow-color: #8e00ea !important;
+}
+
+/* This fires as soon as the element enters the DOM*/
+.navbar-transition-enter {
+  /*We give the list the initial dimension of the list button*/
+  top: -80px;
+  opacity: 0;
+  color: transparent;
+  background-color: #5a564c;
+}
+/* This is where we can add the transition*/
+.navbar-transition-enter-active {
+  top: 0px;
+  width: 100%;
+  opacity: 1;
+  // background-color: #9e8949;
+  transition: all 1000ms ease, opacity 2000ms ease;
+}
