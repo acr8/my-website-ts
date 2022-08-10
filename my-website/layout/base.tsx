@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import { getCookies, setCookies, removeCookies, hasCookie } from "cookies-next";
 import Navbar from "../modules/navbar/navbar";
 import moment from "moment";
-import dynamic from 'next/dynamic'
-
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
@@ -20,6 +18,7 @@ export default function LayoutBase({ children }: Props) {
   const [showChildren, setshowChildren] = useState(false);
   const [navbarFade, setNavbarFade] = useState(typeof window !== "undefined" ? (sessionStorage.getItem("fade") === "ok" ? true : false) : false);
 // const [navbarFade, setNavbarFade] = useState(false)
+
   useEffect(() => {
     setshowChildren(true);
     setNavbarFade(true);
@@ -44,20 +43,8 @@ export default function LayoutBase({ children }: Props) {
           <Navbar/>
         </Header>
       </CSSTransition>
-      {/* <Content style={{ marginTop: 80 }}>{showChildren && children}</Content> */}
       <Content>{showChildren && children}</Content>
       <BackTop />
-      {/* <Footer className="custom-footer">
-        <Row>
-          <Col span={8} style={{ backgroundColor: "red", marginTop: 0 }}>
-            <div className="circle"></div>
-          </Col>
-          <Col span={8} style={{ textAlign: "center" }}>
-            Copyright © {moment().format("YYYY")} Bima - All Rights Reserved
-          </Col>
-          <Col span={8} style={{ backgroundColor: "green" }}></Col>
-        </Row>
-      </Footer> */}
     </Layout>
   );
 }

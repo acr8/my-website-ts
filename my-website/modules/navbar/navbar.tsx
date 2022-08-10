@@ -45,6 +45,7 @@ export default function Navbar({}: Props) {
       label: (
         <div className="navbar-menu-item">
           <Button className="navbar-button" onClick={() => toHome()}>
+          {/* <Button className="navbar-button"> */}
             <div className="item-border-bottom">
               <span className={`item-text ${header ? "scroll" : ""}`}>Home</span>
             </div>
@@ -57,6 +58,7 @@ export default function Navbar({}: Props) {
       label: (
         <div className="navbar-menu-item">
           <Button className="navbar-button" onClick={() => toMyArtwork()}>
+          {/* <Button className="navbar-button"> */}
             <div className="item-border-bottom">
               <span className={`item-text ${header ? "scroll" : ""}`}>My Artwork</span>
             </div>
@@ -69,6 +71,7 @@ export default function Navbar({}: Props) {
       label: (
         <div className="navbar-menu-item">
           <Button className="navbar-button" onClick={() => toAbout()}>
+          {/* <Button className="navbar-button"> */}
             <div className="item-border-bottom">
               <span className={`item-text ${header ? "scroll" : ""}`}>About</span>
             </div>
@@ -82,7 +85,7 @@ export default function Navbar({}: Props) {
   return (
     <div className={`navbar-container ${header ? "scroll" : ""}`}>
       <h1>MY WEBSITE</h1>
-      <Menu className="navbar-menu" selectedKeys={[current]} mode="horizontal" items={items} />
+      <Menu className="navbar-menu" selectedKeys={[current]} mode="horizontal" items={items}/>
     </div>
   );
 }

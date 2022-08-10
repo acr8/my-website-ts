@@ -93,7 +93,8 @@
           transition: color 0.4s ease-in-out, border-bottom 0.2s ease;
         }
         .item-text {
-          color: white;
+          // color: white; //navbar text
+          color: black;
           transition: all 0.2s ease;
           &.scroll {
             color: black;
