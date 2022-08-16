@@ -18,6 +18,7 @@ const Home: NextPage<Props> = ({ scrollY }) => {
   const ref2 = React.useRef(null);
   const [element, setElement] = useState(false);
   const [firstElement, setFirstElement] = useState(false);
+  const [secondElement, setSecondElement] = useState(false);
   const [offset, setOffset] = useState(null);
 
   const setScroll = () => {
@@ -34,9 +35,14 @@ const Home: NextPage<Props> = ({ scrollY }) => {
   useEffect(() => {
     if (offset <= 340) {
       setElement(true);
-    } else if (offset >= 350) {
+    } else if (offset >= 300) {
       setElement(false);
-    }
+    } 
+    if (offset >= 300) {
+      setSecondElement(true);
+    } else if (offset <= 250) {
+      setSecondElement(false);
+    } 
   }, [offset]);
 
   useEffect(() => {
@@ -44,6 +50,9 @@ const Home: NextPage<Props> = ({ scrollY }) => {
       setFirstElement(true);
     }, 600);
   });
+
+  
+  
 
   return (
     <LayoutBase>
@@ -53,27 +62,36 @@ const Home: NextPage<Props> = ({ scrollY }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Row className="home-container first">
-        <CSSTransition nodeRef={ref1}  unmountOnExit in={element} timeout={500} classNames="first-scroll-1">
-          <CSSTransition nodeRef={ref1} unmountOnExit in={firstElement} timeout={800} classNames="first-transition">
+        <CSSTransition nodeRef={ref1} unmountOnExit in={element} timeout={500} classNames="first-scroll-1">
+          <CSSTransition nodeRef={ref1} unmountOnExit in={firstElement} timeout={500} classNames="first-transition">
             <Col ref={ref1} xxl={12} xl={12} lg={12} md={12} sm={12} xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <div style={{ background: "lightgray" }}>
-                <p style={{ fontSize: 20 }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, voluptas porro ratione reiciendis, qui possimus dolor dignissimos aliquid est deleniti saepe. Porro ut facere voluptas veritatis harum? Dolores, dignissimos amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam assumenda sed eligendi, asperiores mollitia quae magni error et veniam? Delectus nihil laboriosam voluptates eveniet asperiores quae debitis molestiae nesciunt temporibus!
-                </p>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div style={{ width: 100, height: 100, borderRadius: "100%", backgroundColor: "red", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <p style={{}}>a</p>
+                </div>
+
+                <div style={{ background: "lightgray" }}>
+                  <p style={{ fontSize: 20 }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, voluptas porro ratione reiciendis, qui possimus dolor dignissimos aliquid est deleniti saepe. Porro ut facere voluptas veritatis harum? Dolores, dignissimos amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam assumenda sed eligendi, asperiores mollitia quae magni error et veniam? Delectus nihil laboriosam voluptates eveniet asperiores quae debitis molestiae nesciunt temporibus!
+                  </p>
+                </div>
               </div>
             </Col>
           </CSSTransition>
         </CSSTransition>
         <CSSTransition unmountOnExit nodeRef={ref2} in={element} timeout={500} classNames="first-scroll-2">
           <CSSTransition unmountOnExit nodeRef={ref2} in={firstElement} timeout={800} classNames="second-transition">
-            <Col ref={ref2} xxl={12} xl={12} lg={12} md={12} sm={12} xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center", }}>
+            <Col ref={ref2} xxl={12} xl={12} lg={12} md={12} sm={12} xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
               <div style={{ width: 500, height: 500, backgroundColor: "lightgray" }}></div>
             </Col>
           </CSSTransition>
         </CSSTransition>
       </Row>
-      <Row className="home-container" style={{ backgroundColor: "gray" }}>
-        <div></div>
+      <Row className="home-container second" style={{ backgroundColor: "gray" }}>
+        <CSSTransition unmountOnExit in={secondElement} timeout={500} classNames="third-transition">
+        <div style={{ width: "100%", height: "100%", background: "white" }}>aaaa</div>
+        </CSSTransition>
+        
       </Row>
       <Footer className="custom-footer">
         <Row>

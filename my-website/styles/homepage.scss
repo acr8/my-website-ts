@@ -6,6 +6,11 @@
     background: url("/images/dot-grid.webp");
     padding: 24px 50px;
   }
+
+  &.second {
+    // background: url("/images/dot-grid.webp");
+    padding: 50px 50px;
+  }
 }
 
 // =================================
@@ -18,15 +23,15 @@
 .first-transition-enter-active {
   opacity: 1;
   transform: translateX(0px);
-  transition: all 800ms;
+  transition: all 500ms;
 }
 .first-transition-exit {
-  opacity: 0;
+  opacity: 1;
 }
 
 .first-transition-exit-active {
-  opacity: 1;
-  transition: all 800ms;
+  opacity: 0;
+  transition: all 500ms;
 }
 
 // =================================
@@ -38,15 +43,37 @@
 .second-transition-enter-active {
   opacity: 1;
   transform: translateX(0px);
-  transition: all 800ms;
+  transition: all 500ms;
 }
 .second-transition-exit {
-  opacity: 0;
+  opacity: 1;
 }
 .second-transition-exit-active {
-  opacity: 1;
-  transition: all 800ms;
+  opacity: 0;
+  transition: all 500ms;
 }
+
+// =================================
+
+.third-transition-enter {
+  opacity: 0;
+  transform: translateY(100px);
+}
+.third-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 500ms;
+}
+.third-transition-exit {
+  opacity: 1;
+  // transform: translateX(0px);
+}
+.third-transition-exit-active {
+  opacity: 0;
+  transition: all 500ms;
+  // transform: translateX(100px);
+}
+
 
 // =================================
 
